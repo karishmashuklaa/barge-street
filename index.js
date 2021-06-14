@@ -47,8 +47,8 @@ function moveEnemies() {
 
     enemy.forEach(function(item) {
 
-        if(item.y >= 700){
-            item.y -= 750;
+        if(item.y >= 850){
+            item.y = -400;
             item.style.left = Math.floor(Math.random() * 350) + "px";
         }
         item.y += player.speed;
@@ -108,14 +108,14 @@ function start() {
     player.x = car.offsetLeft;
     player.y = car.offsetTop;
 
-    for(i=0; i<3; i++) {
+    for(i=0; i<4; i++) {
         let enemyCar = document.createElement('div');
         enemyCar.setAttribute('class', 'enemy');
-        enemyCar.y = (i*150);
+        enemyCar.y = ((i+1) * 350) * -1; // for negative position
         enemyCar.style.top = enemyCar.y + "px";
         enemyCar.style.background = 'red';
         // to generate random positions for enemy cars
         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
-        gameArea.appendChild(enemyCar );
+        gameArea.appendChild(enemyCar);
     }
 }
