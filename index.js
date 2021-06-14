@@ -33,9 +33,16 @@ function gamePlay() {
         window.requestAnimationFrame(gamePlay);
     }
 }
-
 // starts the game
 function start() {
+
+    gameArea.classList.remove('hide');
+    startScreen.classList.add('hide');
+
     player.start = true;
     window.requestAnimationFrame(gamePlay);
+
+    let car = document.createElement('div');
+    car.setAttribute('class', 'car');
+    gameArea.appendChild(car);
 }
