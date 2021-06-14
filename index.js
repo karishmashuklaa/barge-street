@@ -59,6 +59,13 @@ function start() {
     player.start = true;
     window.requestAnimationFrame(gamePlay);
 
+    for(i=0; i<6; i++) {
+        let roadLine = document.createElement('div');
+        roadLine.setAttribute('class', 'lines');
+        roadLine.style.top = (i*150) + "px";
+        gameArea.appendChild(roadLine);
+    }
+
     let car = document.createElement('div');
     car.setAttribute('class', 'car');
     gameArea.appendChild(car);

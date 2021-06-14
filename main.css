@@ -17,9 +17,17 @@
 }
 
 .gameArea {
-    width: 300px;
+    width: 400px;
     height: 100vh;
     background: #808080;
     margin: auto;
     position: relative;
+}
+
+.lines {
+    width: 10px;
+    height: 110px;
+    background: white;
+    position: absolute;
+    margin-left: 195px;
 }
