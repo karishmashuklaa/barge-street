@@ -32,11 +32,14 @@ function keyUp(e){
 function gamePlay() {
     console.log("Hey I am clicked");
     let car = document.querySelector('.car');
+    let road = gameArea.getBoundingClientRect();
+
     if(player.start){
         if(keys.ArrowUp) { player.y -= player.speed }
         if(keys.ArrowDown) { player.y += player.speed }
-        if(keys.ArrowLeft) { player.x -= player.speed }
-        if(keys.ArrowRight) { player.x += player.speed }
+        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
+        // road.width is the total width of the road and 50 is the width of the car
+        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
 
         // concat px 
         car.style.top = player.y + "px";
