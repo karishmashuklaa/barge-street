@@ -1,14 +1,15 @@
 * {
     box-sizing: border-box;
+}
+html,body {
     margin: 0;
     padding: 0;
 }
-
 .hide {
     display: none;
 }
 
-.car {
+.car , .enemyCar {
     width: 50px;
     height: 70px;
     background: blue;
@@ -19,6 +20,8 @@
 .gameArea {
     width: 400px;
     height: 100vh;
+    border: 3px;
+    box-sizing: border-box;
     background: #808080;
     margin: auto;
     position: relative;

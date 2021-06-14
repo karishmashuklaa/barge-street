@@ -33,6 +33,10 @@ function moveLines() {
     let lines = document.querySelectorAll('.lines');
 
     lines.forEach(function(item) {
+
+        if(item.y >= 700){
+            item.y -= 750;
+        }
         item.y += player.speed;
         item.style.top = item.y + "px";
     })
@@ -88,4 +92,12 @@ function start() {
 
     player.x = car.offsetLeft;
     player.y = car.offsetTop;
+
+    for(i=0; i<3; i++) {
+        let enemyCar = document.createElement('div');
+        enemyCar .setAttribute('class', 'enemyCar');
+        enemyCar .y = (i*150);
+        enemyCar .style.top = enemyCar.y + "px";
+        gameArea.appendChild(enemyCar );
+    }
 }
