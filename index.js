@@ -35,10 +35,12 @@ function gamePlay() {
     let road = gameArea.getBoundingClientRect();
 
     if(player.start){
-        if(keys.ArrowUp) { player.y -= player.speed }
-        if(keys.ArrowDown) { player.y += player.speed }
+        // road.top is the top of the road in px 
+        if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
+         // road.bottom is the bottom of the road in px 
+        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
         if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-        // road.width is the total width of the road and 50 is the width of the car
+        // road.width is the total width of the road in px and 50 is the width of the car
         if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
 
         // concat px 
