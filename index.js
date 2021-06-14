@@ -95,9 +95,12 @@ function start() {
 
     for(i=0; i<3; i++) {
         let enemyCar = document.createElement('div');
-        enemyCar .setAttribute('class', 'enemyCar');
-        enemyCar .y = (i*150);
-        enemyCar .style.top = enemyCar.y + "px";
+        enemyCar.setAttribute('class', 'enemyCar');
+        enemyCar.y = (i*150);
+        enemyCar.style.top = enemyCar.y + "px";
+        enemyCar.style.background = 'red';
+        // to generate random positions for enemy cars
+        enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(enemyCar );
     }
 }
