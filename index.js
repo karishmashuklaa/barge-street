@@ -10,7 +10,9 @@ let keys = {
     ArrowLeft: false,
     ArrowRight: false
 }
-let player = {};
+let player = {
+    speed: 5
+};
 
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
@@ -29,7 +31,17 @@ function keyUp(e){
 
 function gamePlay() {
     console.log("Hey I am clicked");
+    let car = document.querySelector('.car');
     if(player.start){
+        if(keys.ArrowUp) { player.y -= player.speed }
+        if(keys.ArrowDown) { player.y += player.speed }
+        if(keys.ArrowLeft) { player.x -= player.speed }
+        if(keys.ArrowRight) { player.x += player.speed }
+
+        // concat px 
+        car.style.top = player.y + "px";
+        car.style.left = player.x + "px";
+
         window.requestAnimationFrame(gamePlay);
     }
 }
