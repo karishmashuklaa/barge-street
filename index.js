@@ -29,17 +29,32 @@ function keyUp(e){
     console.log(keys);
 }
 
+function moveLines() {
+    let lines = document.querySelectorAll('.lines');
+
+    lines.forEach(function(item) {
+        item.y += player.speed;
+        item.style.top = item.y + "px";
+    })
+}
+
 function gamePlay() {
     console.log("Hey I am clicked");
     let car = document.querySelector('.car');
     let road = gameArea.getBoundingClientRect();
 
     if(player.start){
+
+        moveLines();
+
         // road.top is the top of the road in px 
         if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
+
          // road.bottom is the bottom of the road in px 
         if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
+
         if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
+
         // road.width is the total width of the road in px and 50 is the width of the car
         if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
 
@@ -62,7 +77,8 @@ function start() {
     for(i=0; i<6; i++) {
         let roadLine = document.createElement('div');
         roadLine.setAttribute('class', 'lines');
-        roadLine.style.top = (i*150) + "px";
+        roadLine.y = (i*150);
+        roadLine.style.top = roadLine.y + "px";
         gameArea.appendChild(roadLine);
     }
 
