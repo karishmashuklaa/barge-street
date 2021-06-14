@@ -28,8 +28,12 @@ function keyUp(e){
     console.log(keys);
 }
 
-function isCollide( ) {
-
+// when the player car crashes into an enemy car 
+function isCollide(car,enemy) {
+    carPosition = car.getBoundingClientRect();
+    enemyPosition = car.getBoundingClientRect();
+    
+    return !((carPosition.bottom < enemyPosition.top) || (carPosition.top > enemyPosition.bottom) || (carPosition.right < enemyPosition.left) || (carPosition.left > enemyPosition.right))
 }
 
 // To move lines
@@ -47,7 +51,7 @@ function moveLines() {
 }
 
 // To move enemy cars
-function moveEnemies() {
+function moveEnemies(car) {
     let enemy = document.querySelectorAll('.enemy');
 
     enemy.forEach(function(item) {
@@ -56,8 +60,13 @@ function moveEnemies() {
             item.y = -400;
             item.style.left = Math.floor(Math.random() * 350) + "px";
         }
+
         item.y += player.speed;
         item.style.top = item.y + "px";
+        
+        if(isCollide(car,item)) {
+            console.log("CARS CRASHED!")
+        }
     })
 }
 
@@ -107,7 +116,7 @@ function gamePlay() {
     if(player.start){
 
         moveLines();
-        moveEnemies();
+        moveEnemies(car);
 
         // road.top is the top of the road in px 
         if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
