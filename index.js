@@ -10,7 +10,9 @@ let keys = {
     ArrowLeft: false,
     ArrowRight: false
 }
-let player = {};
+let player = {
+    speed: 5
+};
 
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
@@ -29,7 +31,22 @@ function keyUp(e){
 
 function gamePlay() {
     console.log("Hey I am clicked");
+    let car = document.querySelector('.car');
+    let road = gameArea.getBoundingClientRect();
+
     if(player.start){
+        // road.top is the top of the road in px 
+        if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
+         // road.bottom is the bottom of the road in px 
+        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
+        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
+        // road.width is the total width of the road in px and 50 is the width of the car
+        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
+
+        // concat px 
+        car.style.top = player.y + "px";
+        car.style.left = player.x + "px";
+
         window.requestAnimationFrame(gamePlay);
     }
 }
