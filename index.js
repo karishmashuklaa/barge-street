@@ -2,8 +2,6 @@ const score = document.querySelector('.score');
 const startScreen = document.querySelector('.startScreen');
 const gameArea = document.querySelector('.gameArea');
 
-startScreen.addEventListener('click', start);
-
 let keys = {
     ArrowUp: false,
     ArrowDown: false,
@@ -14,6 +12,7 @@ let player = {
     speed: 7
 };
 
+startScreen.addEventListener('click', start);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
@@ -29,6 +28,11 @@ function keyUp(e){
     console.log(keys);
 }
 
+function isCollide( ) {
+
+}
+
+// To move lines
 function moveLines() {
     let lines = document.querySelectorAll('.lines');
 
@@ -42,6 +46,7 @@ function moveLines() {
     })
 }
 
+// To move enemy cars
 function moveEnemies() {
     let enemy = document.querySelectorAll('.enemy');
 
@@ -56,34 +61,6 @@ function moveEnemies() {
     })
 }
 
-function gamePlay() {
-    console.log("Hey I am clicked");
-    let car = document.querySelector('.car');
-    let road = gameArea.getBoundingClientRect();
-
-    if(player.start){
-
-        moveLines();
-        moveEnemies();
-
-        // road.top is the top of the road in px 
-        if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
-
-         // road.bottom is the bottom of the road in px 
-        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
-
-        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-
-        // road.width is the total width of the road in px and 50 is the width of the car
-        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
-
-        // concat px 
-        car.style.top = player.y + "px";
-        car.style.left = player.x + "px";
-
-        window.requestAnimationFrame(gamePlay);
-    }
-}
 // starts the game
 function start() {
 
@@ -119,3 +96,35 @@ function start() {
         gameArea.appendChild(enemyCar);
     }
 }
+
+// Actual game
+function gamePlay() {
+    console.log("GAME TIME!!!");
+    let car = document.querySelector('.car');
+    // getBoundingClientRect() gives you the entire position 
+    let road = gameArea.getBoundingClientRect();
+
+    if(player.start){
+
+        moveLines();
+        moveEnemies();
+
+        // road.top is the top of the road in px 
+        if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
+
+         // road.bottom is the bottom of the road in px 
+        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
+
+        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
+
+        // road.width is the total width of the road in px and 50 is the width of the car
+        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
+
+        // concat px 
+        car.style.top = player.y + "px";
+        car.style.left = player.x + "px";
+
+        window.requestAnimationFrame(gamePlay);
+    }
+}
+
