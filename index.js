@@ -11,7 +11,7 @@ let keys = {
     ArrowRight: false
 }
 let player = {
-    speed: 5
+    speed: 7
 };
 
 document.addEventListener('keydown', keyDown);
@@ -42,6 +42,20 @@ function moveLines() {
     })
 }
 
+function moveEnemies() {
+    let enemy = document.querySelectorAll('.enemy');
+
+    enemy.forEach(function(item) {
+
+        if(item.y >= 700){
+            item.y -= 750;
+            item.style.left = Math.floor(Math.random() * 350) + "px";
+        }
+        item.y += player.speed;
+        item.style.top = item.y + "px";
+    })
+}
+
 function gamePlay() {
     console.log("Hey I am clicked");
     let car = document.querySelector('.car');
@@ -50,6 +64,7 @@ function gamePlay() {
     if(player.start){
 
         moveLines();
+        moveEnemies();
 
         // road.top is the top of the road in px 
         if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
@@ -95,7 +110,7 @@ function start() {
 
     for(i=0; i<3; i++) {
         let enemyCar = document.createElement('div');
-        enemyCar.setAttribute('class', 'enemyCar');
+        enemyCar.setAttribute('class', 'enemy');
         enemyCar.y = (i*150);
         enemyCar.style.top = enemyCar.y + "px";
         enemyCar.style.background = 'red';

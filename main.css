@@ -9,7 +9,7 @@ html,body {
     display: none;
 }
 
-.car , .enemyCar {
+.car , .enemy {
     width: 50px;
     height: 70px;
     background: blue;
