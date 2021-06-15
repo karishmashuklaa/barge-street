@@ -5,7 +5,9 @@
 html,body {
     margin: 0;
     padding: 0;
+    width: 100%;
     height: 100vh;
+    display: block;
     font-family: 'Noto Sans JP', sans-serif;
 }
 .hide {
@@ -26,11 +28,12 @@ html,body {
 }
 
 .gameArea {
-    display: grid;
+    display: block;
     justify-content: center;
-    width: 400px;
+    width: 360px;
     height: 100vh;
     border: 3px;
+    overflow: hidden; 
     box-sizing: border-box;
     background: #1E241E;
     margin: auto;
@@ -42,10 +45,10 @@ html,body {
 
 .lines {
     width: 10px;
-    height: 110px;
+    height: 90px;
     background: white;
     position: absolute;
-    margin-left: 195px;
+    margin-left: 175px;
 }
 
 .score {
@@ -53,11 +56,11 @@ html,body {
     top: 15px;
     left: 40px;
     background: #1E241E;
-    width: 300px;
+    width: 150px;
     line-height: 70px;
     text-align: center;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     box-shadow: 0 5px 5px #777;
 }
 
@@ -81,11 +84,11 @@ html,body {
 }
 
 .game {
-    display: grid;
+    display: block;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     box-sizing: border-box;
     background-color: #000000;
-    overflow-y:hidden; 
+    overflow: hidden; 
 }
