@@ -17,7 +17,7 @@ html,body {
     background:#ffffff;
     position: absolute;
     bottom: 120px;
-    background-image: url('car.png');
+    background-image: url('images/car.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     border: solid #000000;
