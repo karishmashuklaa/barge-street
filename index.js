@@ -55,6 +55,7 @@ function moveLines() {
 function endGame() {
     player.start = false;
     startScreen.classList.remove('hide');
+    startScreen.innerHTML = "GAME OVER! 👾 <br> FINAL SCORE: " + player.score + "<br> CLICK HERE TO PLAY AGAIN!"
 }
 
 // To move enemy cars
@@ -109,7 +110,7 @@ function start() {
         enemyCar.setAttribute('class', 'enemy');
         enemyCar.y = ((i+1) * 350) * -1; // for negative position
         enemyCar.style.top = enemyCar.y + "px";
-        enemyCar.style.background = 'red';
+        enemyCar.style.backgroundColor = randomColor();
         // to generate random positions for enemy cars
         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(enemyCar);
@@ -132,12 +133,12 @@ function gamePlay() {
         if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
 
          // road.bottom is the bottom of the road in px 
-        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
+        if(keys.ArrowDown && player.y < (road.bottom - 85)) { player.y += player.speed }
 
         if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
 
         // road.width is the total width of the road in px and 50 is the width of the car
-        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
+        if(keys.ArrowRight && player.x < (road.width - 70)) { player.x += player.speed }
 
         // concat px 
         car.style.top = player.y + "px";
@@ -145,7 +146,14 @@ function gamePlay() {
 
         window.requestAnimationFrame(gamePlay);
         player.score++;
-        score.innerText = "Score:" + player.score;
+        let finalScore = player.score - 1;
+        score.innerText = "Score:" + finalScore;
     }
+}
+
+// generate random hex colors
+function randomColor() {
+    var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    return randomColor;
 }
 
