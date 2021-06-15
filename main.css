@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 * {
     box-sizing: border-box;
 }
 html,body {
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 .hide {
     display: none;
@@ -18,7 +20,7 @@ html,body {
     background-image: url('car.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    border: solid #353333;
+    border: solid #000000;
     border-radius: 13px;
 }
 
@@ -27,12 +29,12 @@ html,body {
     height: 100vh;
     border: 3px;
     box-sizing: border-box;
-    background: #808080;
+    background: #1E241E;
     margin: auto;
     position: relative;
     bottom: 0;
-    border-left: 7px dashed yellow;
-    border-right:  7px dashed yellow;
+    border-left: 7px dashed #E0CD05;
+    border-right:  7px dashed #E0CD05;
 }
 
 .lines {
@@ -47,7 +49,7 @@ html,body {
     position: absolute;
     top: 15px;
     left: 40px;
-    background: #5a5757;
+    background: #1E241E;
     width: 300px;
     line-height: 70px;
     text-align: center;
@@ -58,23 +60,21 @@ html,body {
 
 .startScreen{
     position: absolute;
-    background-color: #ee5253;
+    background-color: #262623;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     color:white;
     z-index: 1;
     text-align:center;
-    border:1px solid #ff6b6b;
-    padding:15px;
-    margin:auto;
-    width:50%;
-    cursor:pointer;
-    font-family:carfont;
-    font-size:20px;
-    word-spacing:10px;
-    text-transform:uppercase;
-    box-shadow:0 5px 5px #777;
+    border: 3px dotted #c93333;
+    padding: 15px;
+    margin: auto;
+    width: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    word-spacing: 10px;
+    text-transform: uppercase;
 }
 
 .game {
