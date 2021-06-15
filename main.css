@@ -10,6 +10,18 @@ html,body {
     display: block;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 .hide {
     display: none;
 }
@@ -35,18 +47,21 @@ html,body {
     border: 3px;
     overflow: hidden; 
     box-sizing: border-box;
-    background: #1E241E;
+    background: linear-gradient(-30deg, #292726, #262623, #0b0c3f, #381d9b00);
+    background-size: 100% 100%;
+    animation: gradient 8s ease infinite;
     margin: auto;
     margin-bottom: 0;
     position: relative;
-    border-left: 7px dashed #E0CD05;
-    border-right:  7px dashed #E0CD05;
+    border-left: 7px double #E0CD05;
+    border-right:  7px double #E0CD05;
 }
 
 .lines {
     width: 10px;
-    height: 90px;
-    background: white;
+    height: 100px;
+    display: block;
+    background: #ffffff;
     position: absolute;
     margin-left: 175px;
 }
@@ -55,13 +70,10 @@ html,body {
     position: absolute;
     top: 15px;
     left: 40px;
-    background: #1E241E;
-    width: 150px;
-    line-height: 70px;
     text-align: center;
     color: #ffffff;
     font-size: 1rem;
-    box-shadow: 0 5px 5px #777;
+    z-index: 9;
 }
 
 .startScreen{
@@ -76,19 +88,19 @@ html,body {
     border: 3px dotted #c93333;
     padding: 15px;
     margin: auto;
-    width: 50%;
+    width: 60%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
     word-spacing: 10px;
     text-transform: uppercase;
 }
 
 .game {
+    background: #000000; 
     display: block;
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: #000000;
     overflow: hidden; 
 }
 
