@@ -55,6 +55,7 @@ function moveLines() {
 function endGame() {
     player.start = false;
     startScreen.classList.remove('hide');
+    startScreen.innerHTML = "GAME OVER! 👾 <br> FINAL SCORE: " + player.score + "<br> CLICK HERE TO PLAY AGAIN!"
 }
 
 // To move enemy cars
@@ -109,7 +110,7 @@ function start() {
         enemyCar.setAttribute('class', 'enemy');
         enemyCar.y = ((i+1) * 350) * -1; // for negative position
         enemyCar.style.top = enemyCar.y + "px";
-        enemyCar.style.backgroundColor = 'red';
+        enemyCar.style.backgroundColor = randomColor();
         // to generate random positions for enemy cars
         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(enemyCar);
@@ -145,8 +146,14 @@ function gamePlay() {
 
         window.requestAnimationFrame(gamePlay);
         player.score++;
-        score.innerText = "Score:" + player.score;
+        let finalScore = player.score - 1;
+        score.innerText = "Score:" + finalScore;
     }
 }
 
-// random color fxn
+// generate random hex colors
+function randomColor() {
+    var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    return randomColor;
+}
+

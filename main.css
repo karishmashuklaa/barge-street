@@ -12,7 +12,7 @@ html,body {
 .car , .enemy {
     width: 50px;
     height: 80px;
-    background: blue;
+    background:#ffffff;
     position: absolute;
     bottom: 120px;
     background-image: url('car.png');
