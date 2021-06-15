@@ -109,7 +109,7 @@ function start() {
         enemyCar.setAttribute('class', 'enemy');
         enemyCar.y = ((i+1) * 350) * -1; // for negative position
         enemyCar.style.top = enemyCar.y + "px";
-        enemyCar.style.background = 'red';
+        enemyCar.style.backgroundColor = 'red';
         // to generate random positions for enemy cars
         enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(enemyCar);
@@ -132,12 +132,12 @@ function gamePlay() {
         if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
 
          // road.bottom is the bottom of the road in px 
-        if(keys.ArrowDown && player.y < (road.bottom - 70)) { player.y += player.speed }
+        if(keys.ArrowDown && player.y < (road.bottom - 85)) { player.y += player.speed }
 
         if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
 
         // road.width is the total width of the road in px and 50 is the width of the car
-        if(keys.ArrowRight && player.x < (road.width - 50)) { player.x += player.speed }
+        if(keys.ArrowRight && player.x < (road.width - 70)) { player.x += player.speed }
 
         // concat px 
         car.style.top = player.y + "px";
@@ -149,3 +149,4 @@ function gamePlay() {
     }
 }
 
+// random color fxn
