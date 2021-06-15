@@ -5,6 +5,9 @@
 html,body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
     font-family: 'Noto Sans JP', sans-serif;
 }
 .hide {
@@ -25,24 +28,27 @@ html,body {
 }
 
 .gameArea {
-    width: 400px;
+    display: block;
+    justify-content: center;
+    width: 360px;
     height: 100vh;
     border: 3px;
+    overflow: hidden; 
     box-sizing: border-box;
     background: #1E241E;
     margin: auto;
+    margin-bottom: 0;
     position: relative;
-    bottom: 0;
     border-left: 7px dashed #E0CD05;
     border-right:  7px dashed #E0CD05;
 }
 
 .lines {
     width: 10px;
-    height: 110px;
+    height: 90px;
     background: white;
     position: absolute;
-    margin-left: 195px;
+    margin-left: 175px;
 }
 
 .score {
@@ -50,11 +56,11 @@ html,body {
     top: 15px;
     left: 40px;
     background: #1E241E;
-    width: 300px;
+    width: 150px;
     line-height: 70px;
     text-align: center;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1rem;
     box-shadow: 0 5px 5px #777;
 }
 
@@ -78,8 +84,17 @@ html,body {
 }
 
 .game {
+    display: block;
+    justify-content: center;
     width: 100%;
     height: 100vh;
-    /* background-size: 100% 100%; */
     background-color: #000000;
+    overflow: hidden; 
+}
+
+/* RESPONSIVE BEHAVIOR */
+@media only screen and (max-device-width: 320px){
+    .gameArea {
+        width: 320px;
+    }
 }
