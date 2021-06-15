@@ -48,3 +48,24 @@ html,body {
     font-size: 1.5rem;
     box-shadow: 0 5px 5px #777;
 }
+
+.startScreen{
+    position: absolute;
+    background-color: #ee5253;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    z-index: 1;
+    text-align:center;
+    border:1px solid #ff6b6b;
+    padding:15px;
+    margin:auto;
+    width:50%;
+    cursor:pointer;
+    font-family:carfont;
+    font-size:20px;
+    word-spacing:10px;
+    text-transform:uppercase;
+    box-shadow:0 5px 5px #777;
+}

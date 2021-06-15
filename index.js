@@ -54,6 +54,7 @@ function moveLines() {
 
 function endGame() {
     player.start = false;
+    startScreen.classList.remove('hide');
 }
 
 // To move enemy cars
@@ -81,8 +82,8 @@ function moveEnemies(car) {
 // starts the game
 function start() {
 
-    gameArea.classList.remove('hide');
     startScreen.classList.add('hide');
+    gameArea.innerHTML = "";
 
     player.start = true;
     player.score = 0;
