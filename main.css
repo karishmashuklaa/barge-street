@@ -59,7 +59,7 @@ html,body {
 
 .lines {
     width: 10px;
-    height: 90px;
+    height: 100px;
     display: block;
     background: #ffffff;
     position: absolute;
@@ -73,6 +73,7 @@ html,body {
     text-align: center;
     color: #ffffff;
     font-size: 1rem;
+    z-index: 9;
 }
 
 .startScreen{
@@ -87,7 +88,7 @@ html,body {
     border: 3px dotted #c93333;
     padding: 15px;
     margin: auto;
-    width: 50%;
+    width: 60%;
     cursor: pointer;
     font-size: 15px;
     word-spacing: 10px;
