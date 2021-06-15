@@ -9,7 +9,8 @@ let keys = {
     ArrowRight: false
 }
 let player = {
-    speed: 7
+    speed: 7,
+    score: 0
 };
 
 startScreen.addEventListener('click', start);
@@ -31,10 +32,11 @@ function keyUp(e){
 // when the player car crashes into an enemy car 
 function isCollide(car,enemy) {
     carPosition = car.getBoundingClientRect();
-    enemyPosition = car.getBoundingClientRect();
+    enemyPosition = enemy.getBoundingClientRect();
     
     return !((carPosition.bottom < enemyPosition.top) || (carPosition.top > enemyPosition.bottom) || (carPosition.right < enemyPosition.left) || (carPosition.left > enemyPosition.right))
 }
+
 
 // To move lines
 function moveLines() {
@@ -50,12 +52,21 @@ function moveLines() {
     })
 }
 
+function endGame() {
+    player.start = false;
+}
+
 // To move enemy cars
 function moveEnemies(car) {
     let enemy = document.querySelectorAll('.enemy');
 
     enemy.forEach(function(item) {
 
+        if(isCollide(car,item)) {
+            console.log("CARS CRASHED!");
+            endGame();
+        }
+        
         if(item.y >= 850){
             item.y = -400;
             item.style.left = Math.floor(Math.random() * 350) + "px";
@@ -63,10 +74,7 @@ function moveEnemies(car) {
 
         item.y += player.speed;
         item.style.top = item.y + "px";
-        
-        if(isCollide(car,item)) {
-            console.log("CARS CRASHED!")
-        }
+
     })
 }
 
@@ -77,6 +85,7 @@ function start() {
     startScreen.classList.add('hide');
 
     player.start = true;
+    player.score = 0;
     window.requestAnimationFrame(gamePlay);
 
     for(i=0; i<6; i++) {
@@ -134,6 +143,8 @@ function gamePlay() {
         car.style.left = player.x + "px";
 
         window.requestAnimationFrame(gamePlay);
+        player.score++;
+        score.innerText = "Score:" + player.score;
     }
 }
 
