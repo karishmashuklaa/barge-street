@@ -55,7 +55,7 @@ function moveLines() {
 function endGame() {
     player.start = false;
     startScreen.classList.remove('hide');
-    startScreen.innerHTML = "GAME OVER! 👾 <br> FINAL SCORE: " + player.score + "<br> CLICK HERE TO PLAY AGAIN!"
+    startScreen.innerHTML = "GAME OVER! <br> FINAL SCORE: " + player.score + "<br> CLICK HERE TO RESTART"
 }
 
 // To move enemy cars
@@ -147,7 +147,7 @@ function gamePlay() {
         window.requestAnimationFrame(gamePlay);
         player.score++;
         let finalScore = player.score - 1;
-        score.innerText = "Score:" + finalScore;
+        score.innerText = "Score: " + finalScore;
     }
 }
 
