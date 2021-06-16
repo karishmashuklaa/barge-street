@@ -6,7 +6,11 @@ let keys = {
     ArrowUp: false,
     ArrowDown: false,
     ArrowLeft: false,
-    ArrowRight: false
+    ArrowRight: false,
+    w: false,
+    a: false,
+    s: false,
+    d: false
 }
 let player = {
     speed: 7,
@@ -130,15 +134,16 @@ function gamePlay() {
         moveEnemies(car);
 
         // road.top is the top of the road in px 
-        if(keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
+        if((keys.w || keys.ArrowUp) && player.y > (road.top + 70)) { player.y -= player.speed }
 
          // road.bottom is the bottom of the road in px 
-        if(keys.ArrowDown && player.y < (road.bottom - 85)) { player.y += player.speed }
+        if((keys.s || keys.ArrowDown) && player.y < (road.bottom - 85)) { player.y += player.speed }
 
-        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
+        if((keys.a || keys.ArrowLeft) && player.x > 0) { player.x -= player.speed }
 
-        // road.width is the total width of the road in px and 50 is the width of the car
-        if(keys.ArrowRight && player.x < (road.width - 70)) { player.x += player.speed }
+        // road.width is the total width of the road in px 
+        if((keys.d || keys.ArrowRight) && player.x < (road.width - 70)) { player.x += player.speed }
+
 
         // concat px 
         car.style.top = player.y + "px";
@@ -156,4 +161,5 @@ function randomColor() {
     var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
     return randomColor;
 }
+
 
