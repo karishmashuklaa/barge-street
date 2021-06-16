@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+* {
+    box-sizing: border-box;
+}
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.game {
+    background: #000000; 
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.gameArea {
+    display: block;
+    justify-content: center;
+    width: 360px;
+    height: 100vh;
+    border: 3px;
+    overflow: hidden; 
+    box-sizing: border-box;
+    background: linear-gradient(-30deg, #292726, #262623, #0b0c3f, #381d9b00);
+    background-size: 100% 100%;
+    animation: gradient 8s ease infinite;
+    margin: auto;
+    position: relative;
+    border-left: 7px double #E0CD05;
+    border-right:  7px double #E0CD05;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.startScreen{
+    position: absolute;
+    background-color: #262623;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+    z-index: 1;
+    text-align:center;
+    border: 3px dotted #c93333;
+    padding: 15px;
+    margin: auto;
+    width: 60%;
+    cursor: pointer;
+    font-size: 15px;
+    /* word-spacing: 10px; */
+    text-transform: uppercase;
+}
+
+.hide {
+    display: none;
+}
+
+.car , .enemy {
+    width: 50px;
+    height: 80px;
+    background:#ffffff;
+    position: absolute;
+    bottom: 120px;
+    background-image: url('images/car.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: solid #000000;
+    border-radius: 13px;
+}
+
+
+.lines {
+    width: 10px;
+    height: 100px;
+    display: block;
+    background: #ffffff;
+    position: absolute;
+    margin-left: 175px;
+}
+
+.score {
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1rem;
+    z-index: 9;
+}
+
+/* RESPONSIVE BEHAVIOR */
+@media only screen and (max-device-width: 320px){
+    .gameArea {
+        width: 320px;
+    }
+}
+
+.buttons{
+    position: absolute;
+    bottom: 0;
+    margin: 30px;
+    font-size: 19pt;
+    font-weight: 3000;
+    border-radius: 50%;
+    padding: 18px;
+    border: .5px solid #fff;
+    outline: 0!important;
+    background: rgba(150,150,150,.2);
+    color: #aaa;
+}
