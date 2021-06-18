@@ -34,8 +34,8 @@ a {
     overflow: hidden; 
     box-sizing: border-box;
     background: linear-gradient(-30deg, #292726, #262623, #0b0c3f, #381d9b00);
-    background-size: 100% 100%;
-    animation: gradient 8s ease infinite;
+    background-size: 300% 300%;
+    animation: gradient 6s ease infinite;
     margin: auto;
     position: relative;
     border-left: 7px double #E0CD05;
@@ -121,12 +121,11 @@ a {
     position: absolute;
     bottom: 0;
     margin: 30px;
-    font-size: 19pt;
+    font-size: 20px;
     font-weight: 3000;
     border-radius: 50%;
-    padding: 18px;
+    padding: 16px;
     border: .5px solid #fff;
-    outline: 0!important;
     background: rgba(150,150,150,.2);
     color: #aaa;
 }

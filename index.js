@@ -38,7 +38,8 @@ function isCollide(car,enemy) {
     carPosition = car.getBoundingClientRect();
     enemyPosition = enemy.getBoundingClientRect();
     
-    return !((carPosition.bottom < enemyPosition.top) || (carPosition.top > enemyPosition.bottom) || (carPosition.right < enemyPosition.left) || (carPosition.left > enemyPosition.right))
+    return !((carPosition.bottom < enemyPosition.top) || (carPosition.top > enemyPosition.bottom) 
+    || (carPosition.right < enemyPosition.left) || (carPosition.left > enemyPosition.right))
 }
 
 
