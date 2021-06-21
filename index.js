@@ -1,6 +1,7 @@
 const score = document.querySelector('.score');
 const startScreen = document.querySelector('.startScreen');
 const gameArea = document.querySelector('.gameArea');
+const controlButton = document.querySelector('.buttons');
 
 let keys = {
     ArrowUp: false,
@@ -20,6 +21,9 @@ let player = {
 startScreen.addEventListener('click', start);
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
+controlButton.addEventListener('touchstart', touchHandler);
+
+
 
 function keyDown(e){
     e.preventDefault();
@@ -134,7 +138,8 @@ function gamePlay() {
         moveLines();
         moveEnemies(car);
 
-        // road.top is the top of the road in px 
+        // KEYBOARD CONTROLS
+
         if((keys.w || keys.ArrowUp) && player.y > (road.top + 70)) { player.y -= player.speed }
 
          // road.bottom is the bottom of the road in px 
@@ -145,7 +150,8 @@ function gamePlay() {
         // road.width is the total width of the road in px 
         if((keys.d || keys.ArrowRight) && player.x < (road.width - 70)) { player.x += player.speed }
 
-
+        // MOBILE CONTROLS 
+        
         // concat px 
         car.style.top = player.y + "px";
         car.style.left = player.x + "px";
